@@ -1,0 +1,705 @@
+version: "3.7"
+services:
+  spark-master:
+    image: spark-master:2.4.5
+    container_name: spark-master
+    hostname: spark-master
+    ports:
+      - "8080:8080"
+      - "7077:7077"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.2
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+    environment:
+      - "SPARK_LOCAL_IP=spark-master"
+  spark-worker-1:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-1
+    hostname: spark-worker-1
+    depends_on:
+      - spark-master
+    ports:
+      - "8081:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-1"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.3
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-2:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-2
+    hostname: spark-worker-2
+    depends_on:
+      - spark-master
+    ports:
+      - "8082:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-2"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.4
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-3:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-3
+    hostname: spark-worker-3
+    depends_on:
+      - spark-master
+    ports:
+      - "8083:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-3"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.5
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-4:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-4
+    hostname: spark-worker-4
+    depends_on:
+      - spark-master
+    ports:
+      - "8084:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-4"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.6
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-5:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-5
+    hostname: spark-worker-5
+    depends_on:
+      - spark-master
+    ports:
+      - "8085:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-5"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.7
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-6:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-6
+    hostname: spark-worker-6
+    depends_on:
+      - spark-master
+    ports:
+      - "8086:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-6"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.8
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-7:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-7
+    hostname: spark-worker-7
+    depends_on:
+      - spark-master
+    ports:
+      - "8087:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-7"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.9
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-8:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-8
+    hostname: spark-worker-8
+    depends_on:
+      - spark-master
+    ports:
+      - "8088:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-8"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.10
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-9:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-9
+    hostname: spark-worker-9
+    depends_on:
+      - spark-master
+    ports:
+      - "8089:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-9"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.11
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-10:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-10
+    hostname: spark-worker-10
+    depends_on:
+      - spark-master
+    ports:
+      - "8090:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-10"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.12
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-11:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-11
+    hostname: spark-worker-11
+    depends_on:
+      - spark-master
+    ports:
+      - "8091:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-11"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.13
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-12:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-12
+    hostname: spark-worker-12
+    depends_on:
+      - spark-master
+    ports:
+      - "8092:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-12"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.14
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-13:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-13
+    hostname: spark-worker-13
+    depends_on:
+      - spark-master
+    ports:
+      - "8093:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-13"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.15
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-14:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-14
+    hostname: spark-worker-14
+    depends_on:
+      - spark-master
+    ports:
+      - "8094:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-14"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.16
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-15:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-15
+    hostname: spark-worker-15
+    depends_on:
+      - spark-master
+    ports:
+      - "8095:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-15"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.17
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-16:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-16
+    hostname: spark-worker-16
+    depends_on:
+      - spark-master
+    ports:
+      - "8096:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-16"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.18
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-17:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-17
+    hostname: spark-worker-17
+    depends_on:
+      - spark-master
+    ports:
+      - "8097:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-17"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.19
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-18:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-18
+    hostname: spark-worker-18
+    depends_on:
+      - spark-master
+    ports:
+      - "8098:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-18"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.20
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-19:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-19
+    hostname: spark-worker-19
+    depends_on:
+      - spark-master
+    ports:
+      - "8099:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-19"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.21
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-20:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-20
+    hostname: spark-worker-20
+    depends_on:
+      - spark-master
+    ports:
+      - "8100:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-20"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.22
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-21:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-21
+    hostname: spark-worker-21
+    depends_on:
+      - spark-master
+    ports:
+      - "8101:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-21"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.23
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-22:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-22
+    hostname: spark-worker-22
+    depends_on:
+      - spark-master
+    ports:
+      - "8102:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-22"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.24
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-23:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-23
+    hostname: spark-worker-23
+    depends_on:
+      - spark-master
+    ports:
+      - "8103:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-23"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.25
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-24:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-24
+    hostname: spark-worker-24
+    depends_on:
+      - spark-master
+    ports:
+      - "8104:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-24"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.26
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-25:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-25
+    hostname: spark-worker-25
+    depends_on:
+      - spark-master
+    ports:
+      - "8105:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-25"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.27
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-26:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-26
+    hostname: spark-worker-26
+    depends_on:
+      - spark-master
+    ports:
+      - "8106:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-26"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.28
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-27:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-27
+    hostname: spark-worker-27
+    depends_on:
+      - spark-master
+    ports:
+      - "8107:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-27"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.29
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-28:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-28
+    hostname: spark-worker-28
+    depends_on:
+      - spark-master
+    ports:
+      - "8108:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-28"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.30
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-29:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-29
+    hostname: spark-worker-29
+    depends_on:
+      - spark-master
+    ports:
+      - "8109:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-29"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.31
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-30:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-30
+    hostname: spark-worker-30
+    depends_on:
+      - spark-master
+    ports:
+      - "8110:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-30"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.32
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-31:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-31
+    hostname: spark-worker-31
+    depends_on:
+      - spark-master
+    ports:
+      - "8111:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-31"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.33
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-32:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-32
+    hostname: spark-worker-32
+    depends_on:
+      - spark-master
+    ports:
+      - "8112:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-32"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.34
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-33:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-33
+    hostname: spark-worker-33
+    depends_on:
+      - spark-master
+    ports:
+      - "8113:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-33"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.35
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-34:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-34
+    hostname: spark-worker-34
+    depends_on:
+      - spark-master
+    ports:
+      - "8114:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-34"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.36
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-35:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-35
+    hostname: spark-worker-35
+    depends_on:
+      - spark-master
+    ports:
+      - "8115:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-35"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.37
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-36:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-36
+    hostname: spark-worker-36
+    depends_on:
+      - spark-master
+    ports:
+      - "8116:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-36"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.38
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-37:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-37
+    hostname: spark-worker-37
+    depends_on:
+      - spark-master
+    ports:
+      - "8117:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-37"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.39
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-38:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-38
+    hostname: spark-worker-38
+    depends_on:
+      - spark-master
+    ports:
+      - "8118:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-38"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.40
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-39:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-39
+    hostname: spark-worker-39
+    depends_on:
+      - spark-master
+    ports:
+      - "8119:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-39"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.41
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data
+  spark-worker-40:
+    image: spark-worker:2.4.5
+    container_name: spark-worker-40
+    hostname: spark-worker-40
+    depends_on:
+      - spark-master
+    ports:
+      - "8120:8081"
+    env_file: env/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-40"
+    networks:
+     spark-network:
+        ipv4_address: 10.5.0.42
+    volumes:
+       - /mnt/spark-apps:/opt/spark-apps
+       - /mnt/spark-data:/opt/spark-data"
+
+networks:
+  spark-network:
+    driver: bridge
+    ipam:
+     driver: default
+     config:
+       - subnet: 10.5.0.0/16
